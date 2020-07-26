@@ -53,15 +53,14 @@ public class HeapSort {
       // 构建堆(重新排列数组)
 			heapify(arr, n, i); 
 
-		// 将堆顶元素和末尾元素交换，使末尾元素最大，反复进行交换、构建
-		for (int i=n-1; i>0; i--) 
-		{ 
+    // 将堆顶元素和末尾元素交换，使末尾元素最大，反复进行交换、构建
+		for (int i=n-1; i>0; i--) { 
       // 交换堆顶元素和最后一个元素
 			int temp = arr[0]; 
 			arr[0] = arr[i]; 
 			arr[i] = temp; 
 
-			// 将剩下的节点重新构建堆
+      // 将剩下的节点重新构建堆
 			heapify(arr, i, 0); 
 		} 
 	} 
@@ -73,26 +72,26 @@ public class HeapSort {
 		int l = 2*i + 1; // left = 2*i + 1 
 		int r = 2*i + 2; // right = 2*i + 2 
 
-		// 如果左节点大于根节点，将最大节点设为左节点
+    // 如果左节点大于根节点，将最大节点设为左节点
 		if (l < n && arr[l] > arr[largest]) 
 			largest = l; 
 
-		// 如果右节点大于根节点，将最大节点设为右节点
+    // 如果右节点大于根节点，将最大节点设为右节点
 		if (r < n && arr[r] > arr[largest]) 
 			largest = r; 
 
-		// 如果最大值不在根节点，交换最大节点和根节点
+    // 如果最大值不在根节点，交换最大节点和根节点
 		if (largest != i) { 
 			int swap = arr[i]; 
 			arr[i] = arr[largest]; 
 			arr[largest] = swap; 
 
-			// 递归变换子树
+      // 递归变换子树
 			heapify(arr, n, largest); 
 		} 
 	} 
 
-	// 打印数组
+  // 打印数组
 	static void printArray(int arr[]) { 
 		int n = arr.length; 
 		for (int i=0; i<n; ++i) 
