@@ -88,8 +88,8 @@ public class HeapSort {
 
       // 递归变换子树
       heapify(arr, n, largest); 
-		} 
-	} 
+    } 
+  } 
 
   // 打印数组
   static void printArray(int arr[]) { 
@@ -97,9 +97,9 @@ public class HeapSort {
     for (int i=0; i<n; ++i) 
       System.out.print(arr[i]+" "); 
     System.out.println(); 
-	}
+  }
 
-	public static void main(String args[]) { 
+  public static void main(String args[]) { 
     int arr[] = {12, 11, 13, 5, 6, 7}; 
     int n = arr.length; 
 
