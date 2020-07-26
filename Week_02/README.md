@@ -44,71 +44,71 @@
 
 ```java
 public class HeapSort { 
-	public void sort(int arr[]) { 
-		int n = arr.length; 
+  public void sort(int arr[]) { 
+    int n = arr.length; 
 
     // 构建初始堆，从最后一个非叶子节点开始，从下至上调整
     // 索引从0开始，所以最后一个非叶子节点的索引是n/2-1
-		for (int i = n / 2 - 1; i >= 0; i--) 
+    for (int i = n / 2 - 1; i >= 0; i--) 
       // 构建堆(重新排列数组)
-			heapify(arr, n, i); 
+      heapify(arr, n, i); 
 
     // 将堆顶元素和末尾元素交换，使末尾元素最大，反复进行交换、构建
-		for (int i=n-1; i>0; i--) { 
+    for (int i=n-1; i>0; i--) { 
       // 交换堆顶元素和最后一个元素
-			int temp = arr[0]; 
-			arr[0] = arr[i]; 
-			arr[i] = temp; 
+      int temp = arr[0]; 
+      arr[0] = arr[i]; 
+      arr[i] = temp; 
 
       // 将剩下的节点重新构建堆
-			heapify(arr, i, 0); 
-		} 
-	} 
+      heapify(arr, i, 0); 
+    } 
+  } 
 
   // 堆化
   // n是堆的大小，i起始节点
-	void heapify(int arr[], int n, int i) { 
-		int largest = i; // 最大节点的索引
-		int l = 2*i + 1; // left = 2*i + 1 
-		int r = 2*i + 2; // right = 2*i + 2 
+  void heapify(int arr[], int n, int i) { 
+    int largest = i; // 最大节点的索引
+    int l = 2*i + 1; // left = 2*i + 1 
+    int r = 2*i + 2; // right = 2*i + 2 
 
     // 如果左节点大于根节点，将最大节点设为左节点
-		if (l < n && arr[l] > arr[largest]) 
-			largest = l; 
+    if (l < n && arr[l] > arr[largest]) 
+      largest = l; 
 
     // 如果右节点大于根节点，将最大节点设为右节点
-		if (r < n && arr[r] > arr[largest]) 
-			largest = r; 
+    if (r < n && arr[r] > arr[largest]) 
+      largest = r; 
 
     // 如果最大值不在根节点，交换最大节点和根节点
-		if (largest != i) { 
-			int swap = arr[i]; 
-			arr[i] = arr[largest]; 
-			arr[largest] = swap; 
+    if (largest != i) { 
+      int swap = arr[i]; 
+      arr[i] = arr[largest]; 
+      arr[largest] = swap; 
 
       // 递归变换子树
-			heapify(arr, n, largest); 
+      heapify(arr, n, largest); 
 		} 
 	} 
 
   // 打印数组
-	static void printArray(int arr[]) { 
-		int n = arr.length; 
-		for (int i=0; i<n; ++i) 
-			System.out.print(arr[i]+" "); 
-		System.out.println(); 
+  static void printArray(int arr[]) { 
+    int n = arr.length; 
+    for (int i=0; i<n; ++i) 
+      System.out.print(arr[i]+" "); 
+    System.out.println(); 
 	} 
 
 	public static void main(String args[]) { 
-		int arr[] = {12, 11, 13, 5, 6, 7}; 
-		int n = arr.length; 
+    int arr[] = {12, 11, 13, 5, 6, 7}; 
+    int n = arr.length; 
 
-		HeapSort ob = new HeapSort(); 
-		ob.sort(arr); 
+    HeapSort ob = new HeapSort(); 
+    ob.sort(arr); 
 
-		System.out.println("Sorted array is"); 
-		printArray(arr); 
-	} 
+    System.out.println("Sorted array is"); 
+    printArray(arr); 
+  }
 } 
 ```
 
