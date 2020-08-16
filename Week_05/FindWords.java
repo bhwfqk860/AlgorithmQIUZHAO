@@ -1,15 +1,17 @@
-# 学习笔记
+package algorithm.week05;
 
-## 单词搜索II
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
-```java
-class Solution {
+public class FindWords {
     public List<String> findWords(char[][] board, String[] words) {
-        Trie trie = new Trie();
-        TrieNode root = trie.root;
+        WordTrie trie = new WordTrie();
+        WordTrieNode root = trie.root;
         for (String s : words)
             trie.insert(s);
-        
+
         Set<String> result = new HashSet<>();
         int m = board.length;
         int n = board[0].length;
@@ -22,7 +24,7 @@ class Solution {
         return new LinkedList<String>(result);
     }
 
-    private void find(char[][] board, boolean[][] visited, int i, int j, int m, int n, Set<String> result, TrieNode node) {
+    private void find(char[][] board, boolean[][] visited, int i, int j, int m, int n, Set<String> result, WordTrieNode node) {
         if (i < 0 || i >= m || j < 0 || j >= n || visited[i][j])
             return;
         node = node.children[board[i][j] - 'a'];
@@ -41,19 +43,18 @@ class Solution {
         visited[i][j] = false;
     }
 }
+class WordTrie {
+    public WordTrieNode root = new WordTrieNode();
 
-class Trie {
-    public TrieNode root = new TrieNode();
+    public WordTrie() {
 
-    public Trie() {
-        
     }
 
     public void insert(String s) {
-        TrieNode node = root;
+        WordTrieNode node = root;
         for (char ch : s.toCharArray()) {
             if (node.children[ch - 'a'] == null) {
-                node.children[ch - 'a'] = new TrieNode();
+                node.children[ch - 'a'] = new WordTrieNode();
             }
             node = node.children[ch - 'a'];
         }
@@ -61,15 +62,12 @@ class Trie {
         node.val = s;
     }
 }
-
-class TrieNode {
+class WordTrieNode {
     public String val;
-    public TrieNode[] children = new TrieNode[26];
+    public WordTrieNode[] children = new WordTrieNode[26];
     public boolean isEnd = false;;
 
-    public TrieNode() {
+    public WordTrieNode() {
 
     }
 }
-```
-
