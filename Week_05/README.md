@@ -65,7 +65,7 @@ class Trie {
 class TrieNode {
     public String val;
     public TrieNode[] children = new TrieNode[26];
-    public boolean isEnd = false;;
+    public boolean isEnd = false;
 
     public TrieNode() {
 

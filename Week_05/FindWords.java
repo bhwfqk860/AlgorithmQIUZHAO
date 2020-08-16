@@ -65,7 +65,7 @@ class WordTrie {
 class WordTrieNode {
     public String val;
     public WordTrieNode[] children = new WordTrieNode[26];
-    public boolean isEnd = false;;
+    public boolean isEnd = false;
 
     public WordTrieNode() {
 
