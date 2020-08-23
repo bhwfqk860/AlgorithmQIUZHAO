@@ -6,6 +6,20 @@
 
 O(n2)  稳定
 
+```java
+void bubbleSort(int[] arr) {
+  for (int i = 0; i < arr.length; i++) {   // 有n个元素，进行n次冒泡
+    for (int j = 0; j < arr.length - i - 1; j++) {   // 每一次冒泡，比较交换相邻两个元素
+      if (arr[j] > arr[j+1]) {
+        int tmp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = tmp;
+      }
+    }
+  }
+}
+```
+
 
 
 ### 快速排序
@@ -19,6 +33,7 @@ public static void quickSort(int[] array, int begin, int end) {
     quickSort(array, begin, pivot - 1);
     quickSort(array, pivot + 1, end);
 }
+
 static int partition(int[] a, int begin, int end) {
     // pivot: 标杆位置，counter: 小于pivot的元素的个数
     int pivot = end, counter = begin;
@@ -45,6 +60,20 @@ static int partition(int[] a, int begin, int end) {
 
 O(n2)  稳定
 
+```java
+void insertSort(int[] arr) {
+  int tmp = 0;
+  for (int i = 1; i < arr.length; i++) {
+    tmp = arr[i];
+    int j = i - 1;
+    for (; j >= 0 && tmp < arr[j]; j--) {
+      arr[j+1] = arr[j];
+    }
+    arr[j+1] = tmp;
+  }
+}
+```
+
 
 
 ### 希尔排序
@@ -58,6 +87,20 @@ O(n1.3)  不稳定
 ### 简单选择排序
 
 O(n2)  不稳定
+
+```java
+void selectSort(int[] arr) {
+  for (int i = 0; i < arr.length-1; i++) {
+    int min = i;
+    for (int j = i + 1; j < arr.length; j++) {
+      min = arr[min] < arr[j] ? min : j;
+    }
+    int tmp = arr[i];
+    arr[i] = arr[min];
+    arr[min] = tmp;
+  }
+}
+```
 
 
 
